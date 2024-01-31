@@ -13,6 +13,14 @@ const InputField = ({ cancellor, parentId, child, value, edit, main }) => {
     setText(value)
   }, [value])
 
+  const onCancel = () => {
+    setText('')
+    edit
+      ? actions.handleCancel(cancellor, edit)
+      : actions.handleCancel(cancellor)
+
+  }
+
   const actions = useContext(ActionContext)
   return (
     <form
@@ -59,11 +67,8 @@ const InputField = ({ cancellor, parentId, child, value, edit, main }) => {
         {(text || parentId) && (
           <button
             className={styles.cancelBtn}
-            onClick={() =>
-              edit
-                ? actions.handleCancel(cancellor, edit)
-                : actions.handleCancel(cancellor)
-            }
+            onClick={onCancel}
+            type='button'
           >
             {actions.i18n.post.cancel}
           </button>
