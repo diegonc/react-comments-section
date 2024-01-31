@@ -47,6 +47,7 @@ export const ActionProvider = ({
           {
             userId: currentUser.userId,
             comId: uuid(),
+            timestamp: new Date().getTime(),
             avatarUrl: currentUser.avatarUrl,
             fullName: currentUser.name,
             text: text
@@ -58,6 +59,7 @@ export const ActionProvider = ({
         newList[index].replies.push({
           userId: currentUser.userId,
           comId: uuid(),
+          timestamp: new Date().getTime(),
           avatarUrl: currentUser.avatarUrl,
           fullName: currentUser.name,
           text: text
@@ -73,6 +75,7 @@ export const ActionProvider = ({
         newReplies.push({
           userId: currentUser.userId,
           comId: uuid(),
+          timestamp: new Date().getTime(),
           avatarUrl: currentUser.avatarUrl,
           fullName: currentUser.name,
           text: text
