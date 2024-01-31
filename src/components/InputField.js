@@ -21,6 +21,14 @@ const InputField = ({ cancellor, parentId, child, value, edit, main }) => {
 
   }
 
+  const onSubmit = (event) => {
+    event.preventDefault()
+    edit === true
+      ? actions.submit(cancellor, text, parentId, true, setText)
+      : actions.submit(cancellor, text, parentId, false, setText)
+    return false
+  }
+
   const actions = useContext(ActionContext)
   return (
     <form
@@ -30,6 +38,7 @@ const InputField = ({ cancellor, parentId, child, value, edit, main }) => {
           ? { marginLeft: 36 }
           : { marginLeft: 8 }
       }
+      onSubmit={onSubmit}
     >
       <div className={styles.userImg}>
         <img
